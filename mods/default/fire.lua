@@ -13,7 +13,7 @@ minetest.register_node("default:basic_flame", {
 	drawtype = "firelike",
 	tiles = {
 		{
-			name = "fire_basic_flame_animated.png",
+			name = "default_steel_block.png^[colorize:#FFBB00:200",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,
@@ -22,7 +22,7 @@ minetest.register_node("default:basic_flame", {
 			},
 		},
 	},
-	inventory_image = "fire_basic_flame.png",
+	inventory_image = "default_steel_block.png^[colorize:#FFBB00:200",
 	paramtype = "light",
 	light_source = 13,
 	walkable = false,
@@ -51,7 +51,7 @@ minetest.register_node("default:permanent_flame", {
 	drawtype = "firelike",
 	tiles = {
 		{
-			name = "fire_basic_flame_animated.png",
+			name = "default_steel_block.png^[colorize:#FFBB00:200",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,

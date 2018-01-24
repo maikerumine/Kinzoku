@@ -276,7 +276,7 @@ minetest.register_node("default:apple", {
 			},
 	--tiles = {"default_apple.png"},
 	tiles = {"default_steel_block.png^[colorize:#FF0000:200"},
-	inventory_image = "default_apple.png",
+	--inventory_image = "default_apple.png",
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
@@ -401,7 +401,7 @@ minetest.register_node("default:lava_source", {
 	tiles = {
 		{
 			--name = "default_lava_source_animated.png",
-			name = "default_steel_block.png^[colorize:#ff840170",
+			name = "default_steel_block.png^[colorize:#FFBB00:200",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,
@@ -414,7 +414,7 @@ minetest.register_node("default:lava_source", {
 		-- New-style lava source material (mostly unused)
 		{
 			--name = "default_lava_source_animated.png",
-			name = "default_steel_block.png^[colorize:#ff840170",
+			name = "default_steel_block.png^[colorize:#FFBB00:200",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,
@@ -450,7 +450,7 @@ minetest.register_node("default:lava_flowing", {
 	special_tiles = {
 		{
 			--name = "default_lava_flowing_animated.png",
-			name = "default_steel_block.png^[colorize:#ff840170",
+			name = "default_steel_block.png^[colorize:#FFBB00:200",
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -461,7 +461,7 @@ minetest.register_node("default:lava_flowing", {
 		},
 		{
 			--name = "default_lava_flowing_animated.png",
-			name = "default_steel_block.png^[colorize:#ff840170",
+			name = "default_steel_block.png^[colorize:#FFBB00:200",
 			backface_culling = true,
 			animation = {
 				type = "vertical_frames",

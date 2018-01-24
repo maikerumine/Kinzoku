@@ -430,13 +430,13 @@ minetest.register_node("default:gunpowder", {
 	sunlight_propagates = true,
 	walkable = false,
 	tiles = {
-		"tnt_gunpowder_straight.png",
-		"tnt_gunpowder_curved.png",
-		"tnt_gunpowder_t_junction.png",
-		"tnt_gunpowder_crossing.png"
+		"default_steel_block.png^[colorize:#000000:200",
+		"default_steel_block.png^[colorize:#000000:200",
+		"default_steel_block.png^[colorize:#000000:200",
+		"default_steel_block.png^[colorize:#000000:200",
 	},
 	inventory_image = "tnt_gunpowder_inventory.png",
-	wield_image = "tnt_gunpowder_inventory.png",
+	wield_image = "default_steel_block.png^[colorize:#000000:200",
 	selection_box = {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
@@ -471,7 +471,7 @@ minetest.register_node("default:gunpowder_burning", {
 	walkable = false,
 	light_source = 5,
 	tiles = {{
-		name = "tnt_gunpowder_burning_straight_animated.png",
+		name = "default_steel_block.png^[colorize:#000000:200",
 		animation = {
 			type = "vertical_frames",
 			aspect_w = 16,
@@ -480,7 +480,7 @@ minetest.register_node("default:gunpowder_burning", {
 		}
 	},
 	{
-		name = "tnt_gunpowder_burning_curved_animated.png",
+		name = "default_steel_block.png^[colorize:#000000:200",
 		animation = {
 			type = "vertical_frames",
 			aspect_w = 16,
@@ -489,7 +489,7 @@ minetest.register_node("default:gunpowder_burning", {
 		}
 	},
 	{
-		name = "tnt_gunpowder_burning_t_junction_animated.png",
+		name = "default_steel_block.png^[colorize:#000000:200",
 		animation = {
 			type = "vertical_frames",
 			aspect_w = 16,
@@ -498,7 +498,7 @@ minetest.register_node("default:gunpowder_burning", {
 		}
 	},
 	{
-		name = "tnt_gunpowder_burning_crossing_animated.png",
+		name = "default_steel_block.png^[colorize:#000000:200",
 		animation = {
 			type = "vertical_frames",
 			aspect_w = 16,
@@ -578,16 +578,21 @@ function default.register_tnt(def)
 		def.name = def.name:match(":([%w_]+)")
 	end
 	if not def.tiles then def.tiles = {} end
-	local tnt_top = def.tiles.top or def.name .. "_top.png"
-	local tnt_bottom = def.tiles.bottom or def.name .. "_bottom.png"
-	local tnt_side = def.tiles.side or def.name .. "_side.png"
-	local tnt_burning = def.tiles.burning or def.name .. "_top_burning_animated.png"
+	--local tnt_top = def.tiles.top or def.name .. "_top.png"
+	local tnt_top = "default_steel_block.png^[colorize:#FF0000:200"
+	--local tnt_bottom = def.tiles.bottom or def.name .. "_bottom.png"
+	local tnt_bottom = "default_steel_block.png^[colorize:#FF0000:200"
+	--local tnt_side = def.tiles.side or def.name .. "_side.png"
+	local tnt_side = "default_steel_block.png^[colorize:#FF0000:200"
+	--local tnt_burning = def.tiles.burning or def.name .. "_top_burning_animated.png"
+	local tnt_burning = "default_steel_block.png^[colorize:#FF0000:200"
 	if not def.damage_radius then def.damage_radius = def.radius * 2 end
 
 	if enable_tnt then
 		minetest.register_node(":" .. name, {
 			description = def.description,
 			tiles = {tnt_top, tnt_bottom, tnt_side},
+			inventory_image = "tnt_side.png",
 			is_ground_content = false,
 			groups = {dig_immediate = 2, mesecon = 2, tnt = 1, flammable = 5},
 			sounds = default.node_sound_wood_defaults(),

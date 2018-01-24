@@ -76,12 +76,12 @@ minetest.register_alias("default:grass_3", "moreblocks:slab_steelblock_green_qua
 minetest.register_alias("default:grass_4", "moreblocks:slab_steelblock_green_half")
 minetest.register_alias("default:grass_4", "moreblocks:slab_steelblock_green_three_quarter")
 
-minetest.register_alias("default:dry_grass", "moreblocks:slab_steelblock_green")
-minetest.register_alias("default:dry_grass_1", "moreblocks:slab_steelblock_green_1")
-minetest.register_alias("default:dry_grass_2", "moreblocks:slab_steelblock_green_2")
-minetest.register_alias("default:dry_grass_3", "moreblocks:slab_steelblock_green_quarter")
-minetest.register_alias("default:dry_grass_4", "moreblocks:slab_steelblock_green_half")
-minetest.register_alias("default:dry_grass_4", "moreblocks:slab_steelblock_three_quarter")
+minetest.register_alias("default:dry_grass", "moreblocks:slab_steelblock_yellow")
+minetest.register_alias("default:dry_grass_1", "moreblocks:slab_steelblock_yellow_1")
+minetest.register_alias("default:dry_grass_2", "moreblocks:slab_steelblock_yellow_2")
+minetest.register_alias("default:dry_grass_3", "moreblocks:slab_steelblock_yellow_quarter")
+minetest.register_alias("default:dry_grass_4", "moreblocks:slab_steelblock_yellow_half")
+minetest.register_alias("default:dry_grass_4", "moreblocks:slab_steelblock_yellow_quarter")
 
 minetest.register_alias("default:coral_brown", "default:steelblock_brown")
 minetest.register_alias("default:coral_orange", "default:steelblock_orange")

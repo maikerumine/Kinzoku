@@ -106,14 +106,14 @@ zcg.formspec = function(pn)
 	local formspec = "size[8,7.5]"
 	.. "button[0,0;2,.5;main;Back]"
 	if zcg.users[pn].history.index > 1 then
-		formspec = formspec .. "image_button[0,1;1,1;zcg_previous.png;zcg_previous;;false;false;zcg_previous_press.png]"
+		formspec = formspec .. "image_button[0,1;1,1;flowers_flowers_dandelion_white.png;zcg_previous;;false;false;flowers_flowers_rose.png]"
 	else
-		formspec = formspec .. "image[0,1;1,1;zcg_previous_inactive.png]"
+		formspec = formspec .. "image[0,1;1,1;black.png]"
 	end
 	if zcg.users[pn].history.index < #zcg.users[pn].history.list then
-		formspec = formspec .. "image_button[1,1;1,1;zcg_next.png;zcg_next;;false;false;zcg_next_press.png]"
+		formspec = formspec .. "image_button[1,1;1,1;flowers_flowers_dandelion_white.png;zcg_next;;false;false;flowers_flowers_waterlily.png]"
 	else
-		formspec = formspec .. "image[1,1;1,1;zcg_next_inactive.png]"
+		formspec = formspec .. "image[1,1;1,1;black.png]"
 	end
 	-- Show craft recipe
 	if current_item ~= "" then
@@ -134,12 +134,12 @@ zcg.formspec = function(pn)
 				for i, item in pairs(c.items) do
 					formspec = formspec .. "item_image_button["..((i-1)%c.width+x)..","..(math.floor((i-1)/c.width+y))..";1,1;"..item..";zcg:"..item..";]"
 				end
-				if c.type == "normal" or c.type == "cooking" then
-					formspec = formspec .. "image[6,2;1,1;zcg_method_"..c.type..".png]"
-				else -- we don't have an image for other types of crafting
-					formspec = formspec .. "label[0,2;Method: "..c.type.."]"
-				end
-				formspec = formspec .. "image[6,1;1,1;zcg_craft_arrow.png]"
+				--if c.type == "normal" or c.type == "cooking" then
+				--	formspec = formspec .. "image[6,2;1,1;zcg_method_"..c.type..".png]"
+				--else -- we don't have an image for other types of crafting
+				--	formspec = formspec .. "label[0,2;Method: "..c.type.."]"
+				--end
+				--formspec = formspec .. "image[6,1;1,1;flowers_flower_geranium.png]"
 				formspec = formspec .. "item_image_button[7,1;1,1;"..zcg.users[pn].current_item..";;]"
 			end
 		end

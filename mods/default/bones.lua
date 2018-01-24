@@ -27,13 +27,14 @@ local share_bones_time_early = tonumber(minetest.settings:get("share_bones_time_
 minetest.register_node("default:bones", {
 	description = "Bones",
 	tiles = {
-		"bones_top.png^[transform2",
-		"bones_bottom.png",
-		"bones_side.png",
-		"bones_side.png",
-		"bones_rear.png",
-		"bones_front.png"
+		"default_steel_block.png^[colorize:#FFFFFF:200^[transform2",
+		"default_steel_block.png^[colorize:#FFFFFF:200",
+		"default_steel_block.png^[colorize:#FFFFFF:200",
+		"default_steel_block.png^[colorize:#FFFFFF:200",
+		"default_steel_block.png^[colorize:#FFFFFF:200",
+		"default_steel_block.png^[colorize:#FFFFFF:200"
 	},
+	inventory_image = "bones_front.png",
 	paramtype2 = "facedir",
 	groups = {dig_immediate = 2},
 	sounds = default.node_sound_leaves_defaults(),

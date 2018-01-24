@@ -52,6 +52,8 @@ minetest.register_craft({
 		{"default:steelblock","default:steelblock", "dye:" .. colours[i][1]},
 	}
 })
+
+
 --[[
 --Bronzeblock
 minetest.register_node( "default:bronzeblock_" .. colours[i][1], {

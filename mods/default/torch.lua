@@ -52,13 +52,18 @@ end
 
 minetest.register_node("default:torch", {
 	description = "Torch",
-	drawtype = "mesh",
-	mesh = "torch_floor.obj",
+	--drawtype = "mesh",
+	--mesh = "torch_floor.obj",
+	drawtype = "nodebox",
+		node_box = {
+		type = "wallmounted",
+		wall_bottom = {-1/8, -1/2, -1/8, 1/8, 2/16, 1/8}
+		},
 	inventory_image = "default_torch_on_floor.png",
 	wield_image = "default_torch_on_floor.png",
 	tiles = {{
-		    name = "default_torch_on_floor_animated.png",
-		    animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.3}
+		    name = "default_steel_block.png^[colorize:#FFAA00:200",
+		    --animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.3}
 	}},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
@@ -105,11 +110,16 @@ minetest.register_node("default:torch", {
 })
 
 minetest.register_node("default:torch_wall", {
-	drawtype = "mesh",
-	mesh = "torch_wall.obj",
+	--drawtype = "mesh",
+	--mesh = "torch_wall.obj",
+		drawtype = "nodebox",
+		node_box = {
+		type = "wallmounted",
+		wall_side = {-1/2, -1/2, -1/8, -1/8, 1/8, 1/8},
+		},
 	tiles = {{
-		    name = "default_torch_on_floor_animated.png",
-		    animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.3}
+		    name = "default_steel_block.png^[colorize:#FFAA00:200",
+		    --animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.3}
 	}},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
@@ -128,11 +138,16 @@ minetest.register_node("default:torch_wall", {
 })
 
 minetest.register_node("default:torch_ceiling", {
-	drawtype = "mesh",
-	mesh = "torch_ceiling.obj",
+	--drawtype = "mesh",
+	--mesh = "torch_ceiling.obj",
+	drawtype = "nodebox",
+		node_box = {
+		type = "wallmounted",
+		wall_top = {-1/8, -1/16, -5/16, 1/8, 1/2, 1/8},
+		},
 	tiles = {{
-		    name = "default_torch_on_floor_animated.png",
-		    animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.3}
+		    name = "default_steel_block.png^[colorize:#FFAA00:200",
+		    --animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.3}
 	}},
 	paramtype = "light",
 	paramtype2 = "wallmounted",

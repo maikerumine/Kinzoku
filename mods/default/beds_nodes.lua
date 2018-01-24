@@ -8,19 +8,19 @@ default.register_bed("default:bed", {
 	wield_image = "beds_bed.png",
 	tiles = {
 		bottom = {
-			"beds_bed_top_bottom.png^[transformR90",
-			"default_steel_block.png",
-			"beds_bed_side_bottom_r.png",
-			"beds_bed_side_bottom_r.png^[transformfx",
+			"default_steel_block.png^[colorize:#BB0000:180",
+			"default_steel_block.png^[colorize:#a78c4570:180",
+			"default_steel_block.png^[colorize:#BB0000:180.png",
+			"default_steel_block.png^[colorize:#BB0000:180.png",
 			"beds_transparent.png",
-			"beds_bed_side_bottom.png"
+			"default_steel_block.png^[colorize:#BB0000:180"
 		},
 		top = {
-			"beds_bed_top_top.png^[transformR90",
-			"default_steel_block.png",
-			"beds_bed_side_top_r.png",
-			"beds_bed_side_top_r.png^[transformfx",
-			"beds_bed_side_top.png",
+			"default_steel_block.png^[colorize:#BBBBBB:180",
+			"default_steel_block.png^[colorize:#a78c4570:180",
+			"default_steel_block.png^[colorize:#BBBBBB:180.png",
+			"default_steel_block.png^[colorize:#BBBBBB:180.png",
+			"default_steel_block.png^[colorize:#FFFFFF:180",
 			"beds_transparent.png",
 		}
 	},

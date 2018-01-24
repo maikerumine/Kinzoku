@@ -2,20 +2,35 @@
 -- Aliases for map generators
 --
 
+--minetest.register_alias("mapgen_stone", "default:stone")
 minetest.register_alias("mapgen_stone", "default:steelblock_grey")
-minetest.register_alias("mapgen_dirt", "default:steelblock_dark_brown")
+minetest.register_alias("mapgen_dirt", "default:steelblock_brown")
 minetest.register_alias("mapgen_dirt_with_grass", "default:steelblock_dark_green")
 minetest.register_alias("mapgen_sand", "default:steelblock_yellow")
 minetest.register_alias("mapgen_water_source", "default:water_source")
 minetest.register_alias("mapgen_river_water_source", "default:water_source")
 minetest.register_alias("mapgen_lava_source", "default:lava_source")
-
+minetest.register_alias("mapgen_gravel", "default:steelblock_dark_grey")
+minetest.register_alias("mapgen_desert_stone", "default:steelblock_red")
+minetest.register_alias("mapgen_desert_sand", "default:steelblock_orange")
+minetest.register_alias("mapgen_dirt_with_snow", "default:steelblock_white")
+minetest.register_alias("mapgen_snowblock", "default:steelblock_white")
+minetest.register_alias("mapgen_snow", "moreblocks:slab_steelblock_white_2")
+minetest.register_alias("mapgen_ice", "default:steelblock_cyan")
+minetest.register_alias("mapgen_sandstone", "default:sandstone")
 
 -- Flora
 
-minetest.register_alias("mapgen_tree", "default:tree")
-minetest.register_alias("mapgen_leaves", "default:leaves")
+minetest.register_alias("mapgen_tree", "default:steelblock_brown")
+minetest.register_alias("mapgen_leaves", "default:steelblock_green")
+minetest.register_alias("mapgen_cactus", "default:steelblock_green")
+minetest.register_alias("mapgen_papyrus", "default:steelblock_green")
 minetest.register_alias("mapgen_apple", "default:apple")
+minetest.register_alias("mapgen_jungletree", "default:steelblock_brown")
+minetest.register_alias("mapgen_jungleleaves", "default:steelblock_green")
+minetest.register_alias("mapgen_junglegrass", "default:steelblock_green")
+minetest.register_alias("mapgen_pine_tree", "default:steelblock_brown")
+minetest.register_alias("mapgen_pine_needles", "default:steelblock_green")
 
 
 -- Dungeons
@@ -35,6 +50,7 @@ minetest.register_alias("mapgen_stair_sandstone_block", "default:stair_steelbloc
 -- Mgv6
 
 function default.register_mgv6_ores()
+--[[
 	minetest.register_ore({
 		ore_type        = "blob",
 		ore             = "air",
@@ -54,7 +70,7 @@ function default.register_mgv6_ores()
 		},
 	})
 
-	--[[
+	
 	minetest.register_ore({
 		ore_type        = "blob",
 		ore             = "default:steelblock",
@@ -141,7 +157,7 @@ end
 -- All mapgens except mgv6
 
 function default.register_ores()
-
+--[[
 	minetest.register_ore({
 		ore_type        = "blob",
 		ore             = "air",
@@ -160,7 +176,7 @@ function default.register_ores()
 			persist = 0.0
 		},
 	})
-	--[[
+	
 		minetest.register_ore({
 		ore_type        = "blob",
 		ore             = "default:steelblock",
@@ -1747,7 +1763,7 @@ end
 local function register_dry_grass_decoration(offset, scale, length)
 	minetest.register_decoration({
 		deco_type = "simple",
-		place_on = {"default:steelblock_yellow"},
+		place_on = {"default:steelblock_orange"},
 		sidelen = 16,
 		noise_params = {
 			offset = offset,
@@ -1884,7 +1900,7 @@ function default.register_decorations()
 
 	minetest.register_decoration({
 		deco_type = "schematic",
-		place_on = {"default:steelblock_yellow"},
+		place_on = {"default:steelblock_orange"},
 		sidelen = 16,
 		noise_params = {
 			offset = 0,
@@ -1904,7 +1920,7 @@ function default.register_decorations()
 
 	minetest.register_decoration({
 		deco_type = "schematic",
-		place_on = {"default:steelblock_yellow"},
+		place_on = {"default:steelblock_orange"},
 		sidelen = 16,
 		noise_params = {
 			offset = 0,
