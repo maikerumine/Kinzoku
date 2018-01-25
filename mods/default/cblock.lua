@@ -75,92 +75,11 @@ minetest.register_node( "default:steelblock_" .. colours[i][1], {
 minetest.register_craft({
 	output = "default:steelblock_".. colours[i][1] .. " 2",
 	recipe = {
-		{"default:steelblock","default:steelblock", "dye:" .. colours[i][1]},
+		{"default:steelblock","default:steelblock", "default:" .. colours[i][1]},
 	}
 })
 
 
---[[
---Bronzeblock
-minetest.register_node( "default:bronzeblock_" .. colours[i][1], {
-	description = colours[i][2] .. " Bronzeblock",
-	tiles = {"default_bronze_block.png^[colorize:" .. colours[i][3]},
-	is_ground_content = false,
-	groups = {cracky = 3, not_in_craft_guide=1},
-	sounds = default.node_sound_metal_defaults(),
-})
-
-minetest.register_craft({
-	output = "default:bronzeblock_".. colours[i][1] .. " 2",
-	recipe = {
-		{"default:bronzeblock","default:bronzeblock", "dye:" .. colours[i][1]},
-	}
-})
-
---Copperblock
-minetest.register_node( "default:copperblock_" .. colours[i][1], {
-	description = colours[i][2] .. " Copperblock",
-	tiles = {"default_copper_block.png^[colorize:" .. colours[i][3]},
-	is_ground_content = false,
-	groups = {cracky = 3, not_in_craft_guide=1},
-	sounds = default.node_sound_metal_defaults(),
-})
-
-minetest.register_craft({
-	output = "default:copperblock_".. colours[i][1] .. " 2",
-	recipe = {
-		{"default:copperblock","default:copperblock", "dye:" .. colours[i][1]},
-	}
-})
-
---Tinblock
-minetest.register_node( "default:tinblock_" .. colours[i][1], {
-	description = colours[i][2] .. " Tinblock",
-	tiles = {"default_tin_block.png^[colorize:" .. colours[i][3]},
-	is_ground_content = false,
-	groups = {cracky = 3, not_in_craft_guide=1},
-	sounds = default.node_sound_metal_defaults(),
-})
-
-minetest.register_craft({
-	output = "default:tinblock_".. colours[i][1] .. " 2",
-	recipe = {
-		{"default:tinblock","default:tinblock", "dye:" .. colours[i][1]},
-	}
-})
-
---Goldblock
-minetest.register_node( "default:goldblock_" .. colours[i][1], {
-	description = colours[i][2] .. " Goldblock",
-	tiles = {"default_gold_block.png^[colorize:" .. colours[i][3]},
-	is_ground_content = false,
-	groups = {cracky = 3, not_in_craft_guide=1},
-	sounds = default.node_sound_metal_defaults(),
-})
-
-minetest.register_craft({
-	output = "default:goldblock_".. colours[i][1] .. " 2",
-	recipe = {
-		{"default:goldblock","default:goldblock", "dye:" .. colours[i][1]},
-	}
-})
-]]
-		
---[[		
-if minetest.get_modpath("moreblocks") then
-
-
---Steelblock
-	stairsplus:register_all("steelblock_" .. colours[i][1], "steelblock", "default:steelblock_" .. colours[i][1], {
-		description = "Coloured Steelblock",
-		tiles ={"default_steel_block.png^[colorize:" .. colours[i][3]},
-		groups = {cracky = 3},
-		sounds = default.node_sound_metal_defaults(),
-		sunlight_propagates = true,
-	})
-
-end
-]]
 
 end
 
