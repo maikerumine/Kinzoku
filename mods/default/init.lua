@@ -64,5 +64,10 @@ dofile(default_path.."/mobs_init.lua")
 dofile(default_path.."/dye.lua")
 dofile(default_path.."/flowers_init.lua")
 dofile(default_path.."/intersecting.lua")
+dofile(default_path.."/moreblocks_init.lua")
+--dofile(default_path.."/inventory_plus.lua")
+--dofile(default_path.."/creative.lua")
+--dofile(default_path.."/zcg.lua")
+--dofile(default_path.."/skins_init.lua")
 
 

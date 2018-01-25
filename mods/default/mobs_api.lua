@@ -20,7 +20,6 @@ function default:register_mob(name, def)
 		lava_damage = def.lava_damage,
 		disable_fall_damage = def.disable_fall_damage,
 		drops = def.drops,
-		bone_drops = def.bone_drops,
 		armor = def.armor,
 		drawtype = def.drawtype,
 		on_rightclick = def.on_rightclick,
@@ -32,6 +31,7 @@ function default:register_mob(name, def)
 		animation = def.animation,
 		follow = def.follow,
 		jump = def.jump or true,
+		
 		timer = 0,
 		env_damage_timer = 0, -- only if state = "attack"
 		depressed=false,
@@ -42,12 +42,6 @@ function default:register_mob(name, def)
 		lifetimer = def.lifetimer,
 		tamed = false,
 		food_location = nil,
-		path_blocked_count =0,
-		--full_name = def.full_name,
-		
-		--bone_drop ={def.min,def.max},
-		--bone_drop.min = 0,
-		--bone_drop.max = 2,		
 		
 		set_velocity = function(self, v)
 			local yaw = self.object:getyaw()
@@ -524,91 +518,14 @@ function default:register_mob(name, def)
 			}
 			return minetest.serialize(tmp)
 		end,
-	--[[
--08-10 16:42:26: ERROR[Main]: ServerError: Lua: Runtime error from mod 'mobs' in callback luaentity_Punch(): D:\MTSERVER\bin\..\mods\mobs/api.lua:569: attempt to perform arithmetic on field 'path_blocked_count' (a nil value)
-2016-08-10 16:42:26: ERROR[Main]: stack traceback:
-2016-08-10 16:42:26: ERROR[Main]: 	D:\MTSERVER\bin\..\mods\mobs/api.lua:569: in function <D:\MTSERVER\bin\..\mods\mobs/api.lua:524>
-
-
-]]	
-	
-	--BONES ON PUNCH
-          on_punch = function(self, hitter)
-                --mob killed
-             if self.object:get_hp() <= 0 then
-                if hitter and hitter:is_player() and hitter:get_inventory() then
-                   for _,drop in ipairs(self.drops) do
-                      if math.random(1, drop.chance) == 1 then
-                         hitter:get_inventory():add_item("main", ItemStack(drop.name.." "..math.random(drop.min, drop.max)))
-                      end
-                   end
-                        --mob bones, like player bones
-                        if math.random(1, 3) == 1 and self.path_blocked_count < 1 then --mob was free, not in cage or something
-                            local pos = self.object:getpos()
-                            local nn = minetest.get_node(pos).name
-                            local spaceforbones=nil
-                            if nn=="air" or nn=="default:water_flowing" or nn=="default:water_source" or nn=="default:lava_source" or nn=="default:lava_flowing" then
-                                spaceforbones=pos
-                                minetest.add_node(spaceforbones, {name="default:bones"} )
-                                local meta = minetest.get_meta(spaceforbones)
-                                local inv = meta:get_inventory()
-                                inv:set_size("main", 8*4)
-				
-				--here is where things are broke
-                                for _,bone_drop in ipairs(self.bone_drops) do
-                                    if math.random(1, bone_drop.chance) == 1 then
-                                        local stack = ItemStack(bone_drop.name.." "..math.random(bone_drop.min, bone_drop.max))
-                                        if inv:room_for_item("main", stack) then
-                                            inv:add_item("main", stack)
-                                        end
-                                    end
-                                end
-
-                                meta:set_string("formspec", "size[8,9;]"..
-                                        "list[current_name;main;0,0;8,4;]"..
-                                        "list[current_player;main;0,5;8,4;]")
-                                	--SHOW TIME AT DEATH AND WHO KILLED
-					local time = os.date("*t");
-					meta:set_string("infotext", self.name.." was slain".." at ".. time.year .. "/".. time.month .. "/" .. time.day .. ", " ..time.hour.. ":".. time.min .." by: ("..hitter:get_player_name()..")"); --new
-					meta:set_string("owner", self.name)  --new
-                                --meta:set_string("infotext", self.name.."'s fresh bones")  --lua:570: attempt to concatenate field 'full_name' (a nil value)  --old
-                                --meta:set_string("owner", "Monster ")  --old
-                                meta:set_int("bonetime_counter", 0)
-                                local timer  = minetest.get_node_timer(spaceforbones)
-                                timer:start(1)
-                            end
-                        end
-                   minetest.log("action", "Killed mob "..name.." by "..hitter:get_player_name())
-                end
-                self.object:remove()
-                return
-             elseif self.object:get_hp() == 4 or self.object:get_hp() == 6 or self.object:get_hp() == 10 then
-                    self.path_blocked_count = self.path_blocked_count - 1;
-                self.state="walk"
-             else
-                self.v_start=true
-                if hitter and hitter:is_player() and hitter:get_wielded_item() then
-                   local tool=hitter:get_wielded_item()
-                   tool:add_wear(100)
-                   hitter:set_wielded_item( tool )
-                end
-             end
-          end,	
 		
-		
-		
-		
-		
-		
-		
-		--orig--V
-		--[[
 		on_punch = function(self, hitter)
 			if self.object:get_hp() <= 0 then
 				if hitter and hitter:is_player() and hitter:get_inventory() then
 					for _,drop in ipairs(self.drops) do
 						if math.random(1, drop.chance) == 1 then
 							hitter:get_inventory():add_item("main", ItemStack(drop.name.." "..math.random(drop.min, drop.max)))
+
 						end
 					end
 					minetest.log("action", "Killed mob "..name.." by "..hitter:get_player_name())
@@ -626,8 +543,6 @@ function default:register_mob(name, def)
 				end
 			end
 		end,
-		]]
-		--orig--^
 		
 	})
 end
@@ -647,10 +562,10 @@ function default:register_spawn(name, nodes, max_light, min_light, chance, activ
 			if not default.spawning_mobs[name] then
 				return
 			end
-			local pos2={x=pos.x, y=pos.y+2, z=pos.z} --was +2
+			local pos2={x=pos.x, y=pos.y+2, z=pos.z}
 			if minetest.get_node(pos2).name ~= "air" then
 				return
-			elseif minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name ~= "air" then  --was +1
+			elseif minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name ~= "air" then
 				return
 			elseif not minetest.get_node_light(pos2) then
 				return
@@ -672,7 +587,7 @@ function default:register_spawn(name, nodes, max_light, min_light, chance, activ
 				minetest.chat_send_all("[mobs] Add "..name.." at "..minetest.pos_to_string(pos))
 			end
 			minetest.log("action", "Adding mob "..name.." on block "..nodes.." at "..pos.x..", "..(pos.y+1)..", "..pos.z)
-			minetest.add_entity({x=pos.x, y=pos.y+2, z=pos.z}, name)  --was +1 fixed water dwellers
+			minetest.add_entity({x=pos.x, y=pos.y+1, z=pos.z}, name)
 		end
 	})
 end
@@ -765,28 +680,7 @@ function default:register_arrow(name, def)
 		end
 	})
 end
--- compatibility function for old entities to new modpack entities
--- compatibility function for old entities to new modpack entities
-function default:alias_mob(old_name, new_name)
 
-	-- spawn egg
-	minetest.register_alias(old_name, new_name)
-
-	-- entity
-	minetest.register_entity(":" .. old_name, {
-
-		physical = false,
-
-		on_step = function(self)
-
-			local pos = self.object:getpos()
-
-			minetest.add_entity(pos, new_name)
-
-			self.object:remove()
-		end
-	})
-end
 
   --[[      on_punch = function(self, hitter)
                     --mob killed
@@ -844,74 +738,3 @@ end
                     end
                  end
               end,]]
-	      
-	      
-	      
-	      
-	      --[[
-	      
-	      
-	      	--BREAK maikerumine bones code
-if enable_mob_bones == true then
---if self.object:get_hp() <= 0 then
-if self.health <= 0 then
-if hitter and hitter:is_player() and hitter:get_inventory()
-then
---mob bones, like player bones added by Andrei modified by maikerumine
-if math.random(1, 1) == 1 then
-local pos = self.object:getpos()
-local nn = minetest.get_node(pos).name
-local spaceforbones=nil
-if nn=="air" or nn=="default:water_flowing" or nn=="default:water_source" or nn=="default:lava_source" or nn=="default:lava_flowing" or nn=="default:snow" then
-spaceforbones=pos
---minetest.add_node(spaceforbones, {name="bones:bones"} )
-minetest.add_node(spaceforbones, {name="esdefault:bones"} )
-local meta = minetest.get_meta(spaceforbones)
-local inv = meta:get_inventory()
-inv:set_size("main", 8*4)
---DROPS FILL BONE
-for _,drop in ipairs(self.drops) do
-if math.random(1, drop.chance) == 1 then
-local stack = ItemStack(drop.name.." "..math.random(drop.min, drop.max))
-if inv:room_for_item("main", stack) then
-inv:add_item("main", stack)
-end
-end
-end
-meta:set_string("formspec", "size[8,9;]"..
-"list[current_name;main;0,0;8,4;]"..
-"list[current_player;main;0,5;8,4;]")
---BEGIN TIME STRING
-local time = os.date("*t");--this keeps the bones meta to turn old
---CHOOSE OPTION BELOW:
-meta:set_string("infotext", self.name.." was slain".." at ".. time.year .. "/".. time.month .. "/" .. time.day .. ", " ..time.hour.. ":".. time.min .." by: ("..hitter:get_player_name()..")"); --SHOW TIME AT DEATH AND WHO KILLED
--- meta:set_string("infotext", self.name.."'s fresh bones") --SHOW NO TIME AT BONE EXPIRE
---CHOOSE OPTION BELOW:
--- meta:set_string( "owner", "Extreme Survival Mob R.I.P.") --SET OWNER FOR TIMER
-meta:set_string("owner") --SET NO OWNER NO TIMER
-meta:set_int("bonetime_counter", 0)
-local timer = minetest.get_node_timer(spaceforbones)
-timer:start(10)
-end
-end
-minetest.log("action", "Killed mob "..name.." by "..hitter:get_player_name())
-end
-self.object:remove()
-return
-elseif self.object:get_hp() == 1 or self.object:get_hp() == 1 or self.object:get_hp() == 2 then
-self.state="run"
-else
-self.v_start=true
--- if hitter and hitter:is_player() and hitter:get_wielded_item() then
---local tool=hitter:get_wielded_item()
---tool:add_wear(100)
---hitter:set_wielded_item( tool )
--- end
-end
-end
---BREAK
-
-
-
-
-]]

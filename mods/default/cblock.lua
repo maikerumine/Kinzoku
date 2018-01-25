@@ -20,6 +20,32 @@ local colours = {
 	{"violet",     "Violet",     "#2000c970"},
 	{"white",      "White",      "#abababc0"},
 	{"yellow",     "Yellow",     "#e3ff0070"},
+--[[
+	{"gunmetal",   "Gunmetal",   "#2c353999"},
+	{"dark_slate_grey",   "Dark Slate Grey",   "#25383c99"},
+	{"metallic_silver",   "Metallic Silver",   "#bcc6cc99"},
+	{"blue_marble",   "Blue Marble",   "#566d7e99"},
+	{"blue_steel",   "Blue Steel",   "#4863a099"},
+	{"blue_jay",   "Blue Jay",   "#2b547e99"},
+	{"blue_navy",   "Blue Navy",   "#00008099"},
+	{"blue_orchid",   "Blue Orchid",   "#1f45fc99"},
+	{"blue_dodger",   "Blue Dodger",   "#1589ff99"},
+	{"blue_sea",   "Blue Sea",   "#c2dfff99"},
+	{"blue_electric",   "Blue Electric",   "#9afeff99"},
+	{"blue_green",   "Blue Green",   "#7bccb599"},
+	
+	{"green_light_sea",   "Green Light Sea",   "#3ea99f99"},
+	{"green_sea_turtle",   "Green Sea Turtle",   "#438d8099"},
+	{"greenish_blue",   "Greenish Blue",   "#307d7e99"},
+	{"green_teal",   "Green Teal",   "#00808099"},
+	{"green_sea",   "Green Sea",   "#4e897599"},
+	{"green_camouflage",   "Green Camouflage",   "#78866b99"},
+	{"green_sage",   "Green Sage",   "#78866b99"},
+	{"green_hazel",   "Green Hazel",   "#617c5899"},
+	{"green_venom",   "Green Venom",   "#728c0099"},
+	{"green_fern",   "Green Fern",   "#667c2699"},
+	{"green_dark_forest",   "Green Dark Forest",   "#25411799"},
+	]]
 }
 
 for i = 1, #colours, 1 do
