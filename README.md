@@ -1,4 +1,4 @@
-# blok
+# 金属 Kinzoku
 simple voxel game for building
 made by maikerumine
 20180122

@@ -22,7 +22,7 @@ function show_welcome_message(player)
 							"Welcome "..player:get_player_name().."!\n\n"..
 							"This code was copied from Beerholder's Beerarchy Server as a Placeholder. "..
 							"I am sorry Beerholder,  I will fix it and not use your code...  But it is so nice "..
-							"This is the world known as BLOK. This is an experimental server"..
+							"This is the world known as Kinzoku (metal). This is an experimental server"..
 							" without moderation besides keeping the server up and running. Feel "..
 							" free to say whatever you want in chat. Griefing in any form whatsoever"..
 							" is permitted (destroying structures, lava casting, spawn killing). "..
