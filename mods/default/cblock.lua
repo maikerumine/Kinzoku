@@ -78,7 +78,113 @@ minetest.register_craft({
 		{"default:steelblock","default:steelblock", "default:" .. colours[i][1]},
 	}
 })
-
+--[[
+	{"black",      "Black",      "#000000b0"},
+	{"blue",       "Blue",       "#015dbb70"},
+	{"brown",      "Brown",      "#a78c4570"},
+	{"cyan",       "Cyan",       "#01ffd870"},
+	{"dark_green", "Dark Green", "#005b0770"},
+	{"dark_grey",  "Dark Grey",  "#303030b0"},
+	{"green",      "Green",      "#61ff0170"},
+	{"grey",       "Grey",       "#5b5b5bb0"},
+	{"magenta",    "Magenta",    "#ff05bb70"},
+	{"orange",     "Orange",     "#ff840170"},
+	{"pink",       "Pink",       "#ff65b570"},
+	{"red",        "Red",        "#ff000070"},
+	{"violet",     "Violet",     "#2000c970"},
+	{"white",      "White",      "#abababc0"},
+	{"yellow",     "Yellow",     "#e3ff0070"},
+	]]
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_black" ,"default:steelblock_black", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_blue" ,"default:steelblock_blue", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_brown" ,"default:steelblock_brown", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_cyan" ,"default:steelblock_cyan", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_dark_green" ,"default:steelblock_dark_green", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_dark_grey" ,"default:steelblock_dark_grey", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_green" ,"default:steelblock_green", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_grey" ,"default:steelblock_grey", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_magenta" ,"default:steelblock_magenta", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_orange" ,"default:steelblock_orange", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_pink" ,"default:steelblock_pink", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_red" ,"default:steelblock_red", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_violet" ,"default:steelblock_violet", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_white" ,"default:steelblock_white", "default:" .. colours[i][1]},
+	}
+})
+minetest.register_craft({
+	output = "default:steelblock_".. colours[i][1] .. " 2",
+	recipe = {
+		{"default:steelblock_yellow" ,"default:steelblock_yellow", "default:" .. colours[i][1]},
+	}
+})
 
 
 end
