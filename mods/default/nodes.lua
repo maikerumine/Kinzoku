@@ -211,19 +211,18 @@ default:cloud
 
 --]]
 
---
--- Stone
---
---[[
-minetest.register_node("default:stone", {
+
+
+minetest.register_node("default:kinzoku_block", {
 	description = "Stone",
-	tiles = {"default_stone.png"},
-	groups = {cracky = 3, stone = 1},
-	drop = 'default:stone',
-	legacy_mineral = true,
-	sounds = default.node_sound_stone_defaults(),
+	tiles = {"default_kinzoku_block.png"},
+	groups = {cracky = 1, level = 2},
+	is_ground_content = false,
+	light_source = 4,
+	paramtype = "light",
+	sounds = default.node_sound_metal_defaults(),
 })
-]]
+
 minetest.register_node("default:steelblock", {
 	description = "Steel Block",
 	tiles = {"default_steel_block.png"},
@@ -231,39 +230,7 @@ minetest.register_node("default:steelblock", {
 	groups = {cracky = 1, level = 2},
 	sounds = default.node_sound_metal_defaults(),
 })
---[[
-minetest.register_node("default:copperblock", {
-	description = "Copper Block",
-	tiles = {"default_copper_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_metal_defaults(),
-})
 
-minetest.register_node("default:tinblock", {
-	description = "Tin Block",
-	tiles = {"default_tin_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_metal_defaults(),
-})
-
-minetest.register_node("default:bronzeblock", {
-	description = "Bronze Block",
-	tiles = {"default_bronze_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_metal_defaults(),
-})
-
-minetest.register_node("default:goldblock", {
-	description = "Gold Block",
-	tiles = {"default_gold_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1},
-	sounds = default.node_sound_metal_defaults(),
-})
-]]
 
 
 minetest.register_node("default:apple", {

@@ -86,7 +86,7 @@ default:register_mob("default:griefer_ghost", {
 
 })
 --function default:register_spawn_near(name, nodes, max_light, min_light, tries)
-default:register_spawn_near("default:griefer_ghost", "default:steelblock_dark_green", 4, -1, 2)
+default:register_spawn_near("default:griefer_ghost", "default:steelblock_grey", 4, -1, 2)
 
 default:register_mob("default:stone_monster", {
 	type = "monster",

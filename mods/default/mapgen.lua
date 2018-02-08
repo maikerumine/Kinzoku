@@ -50,15 +50,15 @@ minetest.register_alias("mapgen_stair_sandstone_block", "default:stair_steelbloc
 -- Mgv6
 
 function default.register_mgv6_ores()
---[[
+
 	minetest.register_ore({
 		ore_type        = "blob",
-		ore             = "air",
+		ore             = "default:steelblock_black",
 		wherein         = {"default:steelblock_grey"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_min           = -15,
-		y_max           = 0,
+		y_min           = -15000,
+		y_max           = -2000,
 		noise_threshold = 0.0,
 		noise_params    = {
 			offset = 0.5,
@@ -74,7 +74,7 @@ function default.register_mgv6_ores()
 	minetest.register_ore({
 		ore_type        = "blob",
 		ore             = "default:steelblock",
-		wherein         = {"air"},
+		wherein         = {"default:steelblock_grey"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 7,
 		y_min           = -15,
@@ -89,7 +89,7 @@ function default.register_mgv6_ores()
 			persist = 0.0
 		},
 	})
-]]
+
 	minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:steelblock",
@@ -144,9 +144,28 @@ function default.register_mgv6_ores()
 		y_min          = -31000,
 		y_max          = 0,
 	})
-	
-	
 
+		minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:steelblock_black",
+		wherein        = "default:steelblock_grey",
+		clust_scarcity = 22 * 22 * 22,
+		clust_num_ores = 12,
+		clust_size     = 8,
+		y_min          = -31000,
+		y_max          = -200,
+	})	
+	
+		minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:kinzoku_block",
+		wherein        = "default:steelblock_grey",
+		clust_scarcity = 22 * 22 * 22,
+		clust_num_ores = 4,
+		clust_size     = 8,
+		y_min          = -31000,
+		y_max          = -1048,
+	})
 
 
 
@@ -157,15 +176,15 @@ end
 -- All mapgens except mgv6
 
 function default.register_ores()
---[[
+
 	minetest.register_ore({
 		ore_type        = "blob",
-		ore             = "air",
+		ore             = "default:steelblock_black",
 		wherein         = {"default:steelblock_grey"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_min           = -15,
-		y_max           = 0,
+		y_min           = -15000,
+		y_max           = -2000,
 		noise_threshold = 0.0,
 		noise_params    = {
 			offset = 0.5,
@@ -176,11 +195,12 @@ function default.register_ores()
 			persist = 0.0
 		},
 	})
+
 	
-		minetest.register_ore({
+	minetest.register_ore({
 		ore_type        = "blob",
 		ore             = "default:steelblock",
-		wherein         = {"air"},
+		wherein         = {"default:steelblock_grey"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 7,
 		y_min           = -15,
@@ -195,7 +215,7 @@ function default.register_ores()
 			persist = 0.0
 		},
 	})
-]]	
+	
 	minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:steelblock",
@@ -250,6 +270,28 @@ function default.register_ores()
 		y_min          = -31000,
 		y_max          = 0,
 	})	
+
+		minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:steelblock_black",
+		wherein        = "default:steelblock_grey",
+		clust_scarcity = 22 * 22 * 22,
+		clust_num_ores = 12,
+		clust_size     = 8,
+		y_min          = -31000,
+		y_max          = -200,
+	})	
+	
+		minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:kinzoku_block",
+		wherein        = "default:steelblock_grey",
+		clust_scarcity = 22 * 22 * 22,
+		clust_num_ores = 4,
+		clust_size     = 8,
+		y_min          = -31000,
+		y_max          = -1048,
+	})
 	
 end
 
